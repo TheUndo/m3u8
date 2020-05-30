@@ -63,6 +63,7 @@ M3U8.start.options
 | returnBlob | false | If set to true it will not trigger save file. Get data by [M3U8.events.finished](#m3u8-events-finished) | returnBlob: Boolean | No | No |
 #### M3U8-events-progress
 M3U8.events.progress
+
 Fired every time one video segment (.ts) is downlaoded
 | Key | Default | Description | Syntax | Always set | Read only |
 --- | --- | --- | --- | --- | ---
@@ -80,12 +81,15 @@ Fired when playlist is finished downloading and has merged
 | data | Blob | Video data as Blob | data: Blob | Yes | Yes |
 ### M3U8-events-error
 M3U8.events.error
+
 Fired on error
 | parameter | Default | Description | Syntax | Always set | Read only |
 --- | --- | --- | --- | --- | ---
 | 1st | "An error occurred" | Error message as String | String error message | Yes | Yes |
 ### M3U8-events-aborted
 M3U8.events.aborted
+  
+Fired when (M3U8.start.abort)(#methods) is called
 | parameter | Default | Description | Syntax | Always set | Read only |
 --- | --- | --- | --- | --- | ---
 | 1st | "An error occurred" | Error message as String | String error message | Yes | Yes |
