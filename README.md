@@ -104,3 +104,10 @@ Fired when [M3U8.start.abort](#methods) is called
 | parameter | Default | Description | Syntax | Always set | Read only |
 --- | --- | --- | --- | --- | ---
 | 1st | "An error occurred" | Error message as String | String error message | Yes | Yes |
+## How it works
+The script fetches all the .ts files inside the m3u8 playlist. After that it recursively downloads the remote .ts segment files. It tries to download the .ts segment files __TWO__ at the time in accordance with the HTTP protocol. After the recusion is complete it merges the raw data as "stream/octet" and attempts to save the file to the client's device.
+## Dependencies
+* Fecth API
+* Promise
+* URL API
+* Blob
