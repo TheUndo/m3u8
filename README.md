@@ -52,6 +52,7 @@ All events are optional, if not specified they will be omitted. If you're debugg
 | Method name | Description | Syntax | Parameters |
 --- | --- | --- | ---
 | M3U8 | Initiates a new M3U8 instance. Returns {start} | new M3U8() |  No parameters are expected |
+| M3U8.on | Assigns events to instance | M3U8.on(\<**eventName**\>, \<**callback**\>) | **eventName**: String of the event name. Required: yes. **callback**: Function to be called when event is fired. Required: yes. |
 | M3U8.start | Starts downloading the file | M3U8.start(\<**url**\> [, **options**]) | **url**: URL to the location of the video playlist. Required: yes. **options**: See [M3U8.start.options](#m3u8-start-options) class. Required: no. |
 | M3U8.start.abort | Aborts the download and calls [M3U8.events.aborted](#m3u8-events-aborted) | M3U8.abort() | No parameters are expected |
 ## Classes
@@ -61,6 +62,12 @@ M3U8.start.options
 --- | --- | --- | --- | --- | ---
 | filename | "video.mp4" | The output filename | filename: String <filename> | No | No |
 | returnBlob | false | If set to true it will not trigger save file. Get data by [M3U8.events.finished](#m3u8-events-finished) | returnBlob: Boolean | No | No |
+## Events
+Events are assigned with the [on method](#methods)
+* [progress](#m3u8-events-progress)
+* [finished](#m3u8-events-finished)
+* [error](#m3u8-events-error)
+* [aborted](#m3u8-events-aborted)
 #### M3U8-events-progress
 M3U8.events.progress
 
@@ -72,7 +79,7 @@ Fired every time one video segment (.ts) is downlaoded
 | percentage | undefined | Percentage (segment / total) to 3 decimal points | percentage: String | No | Yes |
 | downloaded | undefined | The amount downloaded in bytes (B) (prefixed) | downloaded: String | No | Yes |
 | status | "Downloading..." | Downloading/processing/saving status | status: String | Yes | Yes |
-### M3U8.events.finished
+### M3U8-events-finished
 M3U8.events.finished
 Fired when playlist is finished downloading and has merged
 | Key | Default | Description | Syntax | Always set | Read only |
@@ -89,7 +96,7 @@ Fired on error
 ### M3U8-events-aborted
 M3U8.events.aborted
   
-Fired when (M3U8.start.abort)(#methods) is called
+Fired when [M3U8.start.abort](#methods) is called
 | parameter | Default | Description | Syntax | Always set | Read only |
 --- | --- | --- | --- | --- | ---
 | 1st | "An error occurred" | Error message as String | String error message | Yes | Yes |
