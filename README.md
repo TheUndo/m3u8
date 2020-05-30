@@ -1,7 +1,7 @@
 ## Description
 Download segmented video (.ts) from m3u8 playlist and merge the segments into one video (.mp4/.mv4/.\*) file for saving.
 ## Where to use
-You may modify the code to work on server side JavaScript runtimes such as Node JS however it's primarily for client side usage. It's meant to extend video players to allow users to download m3u8 playlists. This repo was made out of frustration for the lack of downloading features in (hls.js)[#https://github.com/video-dev/hls.js] and (video.js)[https://github.com/videojs/videojs-contrib-hls].
+You may modify the code to work on server side JavaScript runtimes such as Node JS however it's primarily for client side usage. It's meant to extend video players to allow users to download m3u8 playlists. This repo was made out of frustration for the lack of downloading features in [hls.js](https://github.com/video-dev/hls.js) and [video.js](https://github.com/videojs/videojs-contrib-hls).
 ## Installation
 ### Normal install
 Download m3u8.js and add this to your \<head\> tag
