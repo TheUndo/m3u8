@@ -18,7 +18,7 @@ To make this work on older browsers download m3u8.polyfill.js and add this to yo
 <script type="text/javascript" src="/path/to/m3u8.polyfill.js></script>
 ```
 ## Getting started
-### Simple setup
+### Simple example
 First create a new instance of M3U8 and start a new download
 ```js
 const m3u8 = new M3U8();
@@ -35,7 +35,7 @@ const download = m3u8.start("https://example.com/videos/playlist.m3u8");
 
 download.on("progress", progress => {
 
-  console.log("progress"); // See Classes > M3U8.events.finished
+  console.log(progress); // See Classes > M3U8.events.progress
 
 }).on("finished", finished => {
 
