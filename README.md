@@ -13,9 +13,9 @@ Download m3u8.js and add this to your \<head\> tag
 <script type="text/javascript" src="/path/to/m3u8.js></script>
 ```
 ### Polyfilled install
-To make this work on older browsers download m3u8-polyfill.js and add this to your \<head\> tag
+To make this work on older browsers download m3u8.polyfill.js and add this to your \<head\> tag
 ```html
-<script type="text/javascript" src="/path/to/m3u8-polyfill.js></script>
+<script type="text/javascript" src="/path/to/m3u8.polyfill.js></script>
 ```
 ## Getting started
 ### Simple setup
