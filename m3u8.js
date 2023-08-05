@@ -67,15 +67,12 @@ function M3U8() {
                 })
                 .then(function(d) {
 
-                    var filtered = filter(d.split(/(\r\n|\r|\n)/gi), function(item) {
-                        return item.indexOf(".ts") > -1; // select only ts files
-                    });
+                    const segmentReg = /^(?!#)(.+)\.(.+)$/gm;
+                    const segments = d.match(segmentReg);
 
-                    var mapped = map(filtered, function(v, i) {
-                        if (v.indexOf("http") === 0 || v.indexOf("ftp") === 0) { // absolute url
-                            return v;
-                        }
-                        return url.protocol + "//" + url.host + url.pathname + "/./../" + v; // map ts files into url
+                    var mapped = map(segments, function(v, i) {
+                        let temp_url = new URL(v, url) // absolute url
+                        return temp_url.href
                     });
 
                     if (!mapped.length) {
@@ -177,7 +174,7 @@ function M3U8() {
                                 (_this.onprogress && _this.onprogress({
                                     segment: i + j + 1,
                                     total: arr.length,
-                                    percentage: ((i + j + 1) / arr.length * 100).toFixed(3),
+                                    percentage: Math.floor((i + j + 1) / arr.length * 100),
                                     downloaded: formatNumber(+reduce(map(data, function(v) {
                                         return v.byteLength;
                                     }), function(t, c) {
